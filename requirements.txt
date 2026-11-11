@@ -1,0 +1,5 @@
+numpy<2
+scipy
+pandas
+matplotlib
+torch

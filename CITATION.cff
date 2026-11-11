@@ -1,0 +1,7 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper."
+title: "Parametric physics-informed neural network for American FX options"
+authors:
+  - family-names: "[Surname]"
+    given-names: "[Given name]"
+# fill in: version, date-released, doi (Zenodo), license, repository-code, and the paper under preferred-citation
