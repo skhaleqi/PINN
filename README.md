@@ -65,4 +65,4 @@ An AI assistant (Claude, Anthropic) was used to help write and debug the code, t
 
 ## License and citation
 
-[Choose a license (for example MIT or Apache-2.0) and add a LICENSE file; without one the code is not reusable by others.] Citation: [paper reference once available]; archived version: [Zenodo DOI].
+MIT License, All right recived Citation: [paper reference once available]; archived version: [Zenodo DOI].
