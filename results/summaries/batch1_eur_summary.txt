@@ -1,0 +1,92 @@
+Runs found: 15 (iters=30000); cases per run: 189
+mode   cheb  fourier  plain
+rho                        
+30.0      1        1      1
+100.0     3        3      3
+300.0     1        1      1
+
+1) OVERALL per rho and mode (mean over seeds of the per-run means; sd = spread of the run means over seeds)
+               n_seeds  atm_mean  atm_sd  atm_median  atm_worst  rel_L2_vs_penalized_pct  rel_L2_vs_exact_pct  share_cases_better_than_euro
+rho   mode                                                                                                                                 
+30.0  cheb           1    0.0533     NaN      0.0175     0.7861                   0.1277               0.3062                        0.5397
+      fourier        1    0.0323     NaN      0.0110     0.6418                   0.1045               0.2929                        0.6561
+      plain          1    0.0737     NaN      0.0188     1.4313                   0.1724               0.3385                        0.5556
+100.0 cheb           3    0.2118  0.0109      0.0864     2.4584                   0.4110               0.4163                        0.1993
+      fourier        3    0.1704  0.0321      0.0556     2.2086                   0.3738               0.3840                        0.2910
+      plain          3    0.2322  0.0209      0.0553     3.3927                   0.4869               0.4912                        0.2522
+300.0 cheb           1    0.3737     NaN      0.1742     3.7260                   0.6713               0.6668                        0.0847
+      fourier        1    0.3048     NaN      0.1147     2.7337                   0.5291               0.5243                        0.1534
+      plain          1    0.4346     NaN      0.1408     4.3999                   0.8584               0.8542                        0.0952
+
+European-formula benchmark (no network): mean ATM error 0.1070
+
+2) FLOOR set by the penalty method itself (a perfect network solving the penalized equation would score this vs the exact answer)
+     floor_ATM_err  floor_rel_L2_vs_exact_pct
+rho                                          
+30          0.0137                     0.2388
+100         0.0054                     0.0724
+300         0.0027                     0.0247
+
+3) rho=30: mean ATM error by sigma (all seeds; 'European' = no-network benchmark)
+mode     cheb  fourier   plain  European
+sigma                                   
+0.030  0.1522   0.1043  0.2269    0.0810
+0.045  0.0781   0.0439  0.1156    0.0988
+0.060  0.0428   0.0196  0.0683    0.1078
+0.080  0.0183   0.0120  0.0339    0.1132
+0.100  0.0168   0.0176  0.0207    0.1153
+0.125  0.0270   0.0161  0.0192    0.1162
+0.150  0.0378   0.0125  0.0310    0.1164
+
+3) rho=100: mean ATM error by sigma (all seeds; 'European' = no-network benchmark)
+mode     cheb  fourier   plain  European
+sigma                                   
+0.030  0.5140   0.4430  0.5215    0.0810
+0.045  0.3433   0.2839  0.3595    0.0988
+0.060  0.2418   0.1954  0.2643    0.1078
+0.080  0.1565   0.1192  0.1847    0.1132
+0.100  0.1016   0.0709  0.1331    0.1153
+0.125  0.0660   0.0430  0.0919    0.1162
+0.150  0.0597   0.0378  0.0706    0.1164
+
+3) rho=300: mean ATM error by sigma (all seeds; 'European' = no-network benchmark)
+mode     cheb  fourier   plain  European
+sigma                                   
+0.030  0.7077   0.6634  0.8164    0.0810
+0.045  0.5461   0.4556  0.6371    0.0988
+0.060  0.4294   0.3556  0.5017    0.1078
+0.080  0.3221   0.2558  0.3787    0.1132
+0.100  0.2512   0.1857  0.2965    0.1153
+0.125  0.1876   0.1218  0.2281    0.1162
+0.150  0.1716   0.0956  0.1835    0.1164
+
+4) Effect of rho on the mean ATM error (seed 0)
+rho       30.0    100.0   300.0
+mode                           
+cheb     0.0533  0.2215  0.3737
+fourier  0.0323  0.1343  0.3048
+plain    0.0737  0.2285  0.4346
+
+   ... and on the mean relative L2 error vs the EXACT answer (%), seed 0
+rho       30.0    100.0   300.0
+mode                           
+cheb     0.3062  0.4052  0.6668
+fourier  0.2929  0.2972  0.5243
+plain    0.3385  0.4886  0.8542
+
+5) Mode comparison, geometric-mean ratio of the per-run mean ATM error (below 1 = first is better). Only meaningful with >= 3 seeds.
+     seeds  cheb_over_plain  fourier_over_plain  cheb_over_fourier cheb_beats_plain_in fourier_beats_plain_in
+rho                                                                                                          
+30       1            0.723               0.438              1.652                 1/1                    1/1
+100      3            0.914               0.727              1.258                 3/3                    3/3
+300      1            0.860               0.701              1.226                 1/1                    1/1
+
+6) Six worst cases at rho=30
+         seed  sigma     r     q   tau  price_err  euro_err
+mode                                                       
+plain       0  0.030  0.06 -0.01  1.00     1.4313    0.2290
+plain       0  0.045  0.06 -0.01  1.00     0.9152    0.4061
+plain       0  0.030  0.06 -0.01  0.50     0.8776    0.1921
+cheb        0  0.030  0.06 -0.01  1.00     0.7861    0.2290
+plain       0  0.030  0.06 -0.01  0.25     0.6465    0.1347
+fourier     0  0.030  0.06 -0.01  1.00     0.6418    0.2290

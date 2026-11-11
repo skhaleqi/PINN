@@ -1,0 +1,60 @@
+File: results_eur2_cases.csv | runs: 15 | cases per run: 105
+mode  cheb  fourier  plain
+rho                       
+30.0     5        5      5
+
+1) OVERALL per rho and mode (mean over seeds of the per-run means; sd = spread of the run means over seeds)
+              n_seeds  atm_mean  atm_sd  atm_median  atm_worst  rel_L2_vs_penalized_pct  rel_L2_vs_exact_pct  share_cases_better_than_euro
+rho  mode                                                                                                                                 
+30.0 cheb           5    0.0776  0.0137      0.0410     0.6832                   0.1196               0.1158                        0.6667
+     fourier        5    0.0473  0.0068      0.0205     0.4837                   0.0790               0.0776                        0.8571
+     plain          5    0.0872  0.0093      0.0269     0.9141                   0.1191               0.1202                        0.7619
+
+European-formula benchmark (no network), same cases: mean ATM error 0.1235
+
+2) FLOOR set by the penalty method itself (score of a perfect network vs the exact answer), with and without payoff clipping
+             floor_ATM_err  floor_rel_L2_vs_exact_pct
+rho version                                          
+30  raw             0.0157                     0.2796
+    clipped         0.0157                     0.0309
+
+3) rho=30: mean ATM error by sigma (all seeds; 'European' = no-network benchmark)
+mode     cheb  fourier   plain  European
+sigma                                   
+0.030  0.2301   0.1648  0.2880    0.1079
+0.045  0.1172   0.0638  0.1363    0.1211
+0.060  0.0668   0.0249  0.0730    0.1258
+0.080  0.0308   0.0161  0.0316    0.1274
+0.100  0.0249   0.0203  0.0160    0.1276
+0.125  0.0337   0.0196  0.0249    0.1273
+0.150  0.0400   0.0219  0.0404    0.1271
+
+   rho=30: mean ATM error by carry r - q
+mode     cheb  fourier   plain
+carry                         
+0.01   0.0444   0.0220  0.0282
+0.04   0.1276   0.0853  0.1756
+
+5) Mode comparison seed by seed: geometric-mean ratio of the per-run mean ATM error (below 1 = the first is better). Meaningful with >= 3 seeds.
+     seeds  cheb_over_plain  fourier_over_plain  cheb_over_fourier cheb_beats_plain_in fourier_beats_plain_in fourier_beats_cheb_in
+rho                                                                                                                                
+30       5            0.885               0.541              1.635                 4/5                    5/5                   5/5
+
+   per-seed mean ATM error at rho=30
+mode    cheb  fourier   plain
+seed                         
+0     0.0812   0.0396  0.0939
+1     0.0725   0.0468  0.0900
+2     0.0694   0.0551  0.0957
+3     0.0654   0.0533  0.0838
+4     0.0999   0.0419  0.0726
+
+6) Six worst cases at rho=30
+       seed  sigma     r     q  tau  price_err  euro_err
+mode                                                    
+plain     1   0.03  0.06  0.02  1.0     1.0150    0.2726
+plain     1   0.03  0.03 -0.01  1.0     0.9327    0.2711
+plain     3   0.03  0.03 -0.01  1.0     0.9168    0.2711
+plain     0   0.03  0.03 -0.01  1.0     0.9121    0.2711
+plain     2   0.03  0.06  0.02  1.0     0.8824    0.2726
+plain     3   0.03  0.06  0.02  1.0     0.8706    0.2726

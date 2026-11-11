@@ -1,0 +1,9 @@
+                seeds  val_atm_mean  val_atm_sd  val_rel_L2_pct  test_atm_mean
+domain stretch                                                                
+band   0            3        0.0194      0.0033          0.0624         0.0472
+       1            3        0.0199      0.0016          0.0601         0.0469
+box    0            3        0.0162      0.0038          0.0494         0.0348
+rect   0            3        0.0150      0.0026          0.0501         0.0282
+wide   0            3        0.0189      0.0067          0.0541         0.0424
+
+Chosen configuration: domain=rect, stretch=0  (written to chosen_config.txt)

@@ -1,0 +1,153 @@
+File: results_eur2_cases.csv | runs: 63 | cases per run: 105
+rho                   30.0   100.0
+mode                              
+cheb                    5.0    NaN
+cheb_rect               5.0    NaN
+cheb_rect_it60000       3.0    NaN
+fourier                 5.0    NaN
+fourier_box             3.0    NaN
+fourier_rect            5.0    NaN
+fourier_rect_N12        3.0    NaN
+fourier_rect_N16        3.0    NaN
+fourier_rect_N4         3.0    NaN
+fourier_rect_it60000    3.0    3.0
+fourier_rect_lows       3.0    NaN
+fourier_st1             3.0    NaN
+fourier_wide            3.0    NaN
+plain                   5.0    NaN
+plain_rect              5.0    NaN
+plain_rect_it60000      3.0    NaN
+
+1) OVERALL per rho and variant (mean over seeds of the per-run means; atm_weighted = EUR/USD-weighted ATM error)
+                            n_seeds  atm_mean  atm_sd  atm_weighted  atm_median  atm_worst  rel_L2_vs_pen_pct  rel_L2_vs_exact_pct  share_better_than_euro
+rho   mode                                                                                                                                                
+30.0  cheb                        5    0.0776  0.0137        0.0677      0.0410     0.6832             0.1196               0.1158                  0.6667
+      cheb_rect                   5    0.0519  0.0072        0.0423      0.0175     0.5291             0.0760               0.0750                  0.8590
+      cheb_rect_it60000           3    0.0251  0.0032        0.0171      0.0101     0.2453             0.0356               0.0455                  0.9651
+      fourier                     5    0.0473  0.0068        0.0368      0.0205     0.4837             0.0790               0.0776                  0.8571
+      fourier_box                 3    0.0348  0.0067        0.0255      0.0165     0.2394             0.0632               0.0674                  0.8921
+      fourier_rect                5    0.0333  0.0099        0.0249      0.0154     0.3864             0.0582               0.0636                  0.9124
+      fourier_rect_N12            3    0.0378  0.0040        0.0263      0.0154     0.3391             0.0553               0.0622                  0.9143
+      fourier_rect_N16            3    0.0410  0.0079        0.0300      0.0173     0.4252             0.0564               0.0618                  0.9016
+      fourier_rect_N4             3    0.0511  0.0030        0.0404      0.0181     0.5624             0.0734               0.0776                  0.8698
+      fourier_rect_it60000        3    0.0156  0.0031        0.0140      0.0125     0.0682             0.0270               0.0389                  0.9968
+      fourier_rect_lows           3    0.0279  0.0031        0.0252      0.0204     0.1883             0.0644               0.0695                  0.8825
+      fourier_st1                 3    0.0469  0.0021        0.0375      0.0208     0.4153             0.0734               0.0743                  0.8508
+      fourier_wide                3    0.0424  0.0100        0.0322      0.0225     0.2824             0.0682               0.0743                  0.8603
+      plain                       5    0.0872  0.0093        0.0749      0.0269     0.9141             0.1191               0.1202                  0.7619
+      plain_rect                  5    0.0846  0.0087        0.0779      0.0258     0.8862             0.1188               0.1135                  0.7467
+      plain_rect_it60000          3    0.0404  0.0048        0.0298      0.0140     0.5560             0.0557               0.0623                  0.9302
+100.0 fourier_rect_it60000        3    0.0612  0.0038        0.0535      0.0261     0.5473             0.0959               0.0939                  0.8032
+
+European-formula benchmark (no network), same cases: mean ATM error 0.1235; EUR/USD-weighted 0.1247
+
+2) FLOOR set by the penalty method itself (score of a perfect network vs the exact answer)
+             floor_ATM_err  floor_rel_L2_vs_exact_pct
+rho version                                          
+30  raw             0.0157                     0.2796
+    clipped         0.0157                     0.0309
+100 raw             0.0060                     0.0844
+    clipped         0.0060                     0.0107
+
+3) rho=30: mean ATM error by sigma
+mode     cheb  cheb_rect  cheb_rect_it60000  fourier  fourier_box  fourier_rect  fourier_rect_N12  fourier_rect_N16  fourier_rect_N4  fourier_rect_it60000  fourier_rect_lows  fourier_st1  fourier_wide   plain  plain_rect  plain_rect_it60000  European
+sigma                                                                                                                                                                                                                                                     
+0.030  0.2301     0.1783             0.0802   0.1648       0.1130        0.1159            0.1166            0.1297           0.1703                0.0205             0.0659       0.1478        0.1402  0.2880      0.2793              0.1448    0.1079
+0.045  0.1172     0.0797             0.0243   0.0638       0.0374        0.0330            0.0426            0.0533           0.0724                0.0135             0.0217       0.0585        0.0548  0.1363      0.1342              0.0502    0.1211
+0.060  0.0668     0.0389             0.0062   0.0249       0.0135        0.0168            0.0150            0.0196           0.0334                0.0132             0.0251       0.0254        0.0217  0.0730      0.0774              0.0228    0.1258
+0.080  0.0308     0.0134             0.0114   0.0161       0.0156        0.0147            0.0117            0.0121           0.0149                0.0130             0.0224       0.0219        0.0139  0.0316      0.0402              0.0105    0.1274
+0.100  0.0249     0.0110             0.0147   0.0203       0.0189        0.0164            0.0193            0.0173           0.0167                0.0146             0.0209       0.0250        0.0198  0.0160      0.0207              0.0126    0.1276
+0.125  0.0337     0.0175             0.0179   0.0196       0.0208        0.0162            0.0257            0.0248           0.0219                0.0153             0.0154       0.0234        0.0234  0.0249      0.0165              0.0187    0.1273
+0.150  0.0400     0.0241             0.0212   0.0219       0.0243        0.0204            0.0339            0.0304           0.0281                0.0188             0.0236       0.0259        0.0228  0.0404      0.0239              0.0231    0.1271
+
+   rho=30: mean ATM error by carry r - q
+mode     cheb  cheb_rect  cheb_rect_it60000  fourier  fourier_box  fourier_rect  fourier_rect_N12  fourier_rect_N16  fourier_rect_N4  fourier_rect_it60000  fourier_rect_lows  fourier_st1  fourier_wide   plain  plain_rect  plain_rect_it60000
+carry                                                                                                                                                                                                                                           
+0.01   0.0444     0.0197             0.0084   0.0220       0.0201        0.0143            0.0142            0.0159           0.0212                0.0092             0.0201       0.0217        0.0252  0.0282      0.0311              0.0135
+0.04   0.1276     0.1001             0.0502   0.0853       0.0569        0.0619            0.0733            0.0787           0.0960                0.0251             0.0395       0.0846        0.0681  0.1756      0.1648              0.0807
+
+3) rho=100: mean ATM error by sigma
+mode   fourier_rect_it60000  European
+sigma                                
+0.030                0.2087    0.1079
+0.045                0.0926    0.1211
+0.060                0.0464    0.1258
+0.080                0.0261    0.1274
+0.100                0.0213    0.1276
+0.125                0.0176    0.1273
+0.150                0.0157    0.1271
+
+   rho=100: mean ATM error by carry r - q
+mode   fourier_rect_it60000
+carry                      
+0.01                 0.0301
+0.04                 0.1080
+
+4) Effect of rho on the mean ATM error (seed 0)
+rho                    30.0    100.0
+mode                                
+cheb                  0.0812     NaN
+cheb_rect             0.0582     NaN
+cheb_rect_it60000     0.0227     NaN
+fourier               0.0396     NaN
+fourier_box           0.0272     NaN
+fourier_rect          0.0268     NaN
+fourier_rect_N12      0.0374     NaN
+fourier_rect_N16      0.0369     NaN
+fourier_rect_N4       0.0476     NaN
+fourier_rect_it60000  0.0192  0.0654
+fourier_rect_lows     0.0243     NaN
+fourier_st1           0.0492     NaN
+fourier_wide          0.0309     NaN
+plain                 0.0939     NaN
+plain_rect            0.0746     NaN
+plain_rect_it60000    0.0350     NaN
+
+5) Mode comparison seed by seed per configuration: geometric-mean ratio (below 1 = the first is better). Meaningful with >= 3 seeds.
+                                       seeds  cheb_over_plain  fourier_over_plain  cheb_over_fourier cheb_beats_plain fourier_beats_plain fourier_beats_cheb
+rho domain stretch iters metric                                                                                                                             
+30  band   0       30000 atm_mean          5            0.885               0.541              1.635              4/5                 5/5                5/5
+                         atm_weighted      5            0.897               0.492              1.824              4/5                 5/5                5/5
+    rect   0       30000 atm_mean          5            0.611               0.384              1.592              5/5                 5/5                4/5
+                         atm_weighted      5            0.541               0.314              1.724              5/5                 5/5                4/5
+                   60000 atm_mean          3            0.622               0.383              1.625              3/3                 3/3                3/3
+                         atm_weighted      3            0.577               0.460              1.253              3/3                 3/3                2/3
+
+   per-seed mean ATM error at rho=30 (default-N variants)
+mode    cheb  cheb_rect  cheb_rect_it60000  fourier  fourier_box  fourier_rect  fourier_rect_it60000  fourier_rect_lows  fourier_st1  fourier_wide   plain  plain_rect  plain_rect_it60000
+seed                                                                                                                                                                                      
+0     0.0812     0.0582             0.0227   0.0396       0.0272        0.0268                0.0192             0.0243       0.0492        0.0309  0.0939      0.0746              0.0350
+1     0.0725     0.0449             0.0238   0.0468       0.0397        0.0328                0.0136             0.0301       0.0457        0.0489  0.0900      0.0777              0.0422
+2     0.0694     0.0604             0.0288   0.0551       0.0375        0.0251                0.0140             0.0292       0.0456        0.0473  0.0957      0.0960              0.0440
+3     0.0654     0.0508                NaN   0.0533          NaN        0.0319                   NaN                NaN          NaN           NaN  0.0838      0.0848                 NaN
+4     0.0999     0.0450                NaN   0.0419          NaN        0.0501                   NaN                NaN          NaN           NaN  0.0726      0.0899                 NaN
+
+7) VALIDATION contracts (60 held-out EUR/USD-like contracts) per variant, with the test-grid ATM error for comparison
+                      seeds  val_atm_mean  val_atm_sd  val_rel_L2_pct  test_atm_mean
+variant                                                                             
+cheb                      5        0.0296      0.0043          0.0700         0.0776
+cheb_rect                 5        0.0193      0.0034          0.0532         0.0519
+cheb_rect_it60000         3        0.0112      0.0012          0.0386         0.0251
+fourier                   5        0.0203      0.0028          0.0622         0.0473
+fourier_box               3        0.0162      0.0038          0.0494         0.0348
+fourier_rect              5        0.0165      0.0040          0.0519         0.0333
+fourier_rect_N12          3        0.0156      0.0027          0.0474         0.0378
+fourier_rect_N16          3        0.0172      0.0028          0.0462         0.0410
+fourier_rect_N4           3        0.0198      0.0015          0.0605         0.0511
+fourier_rect_it60000      6        0.0192      0.0111          0.0525         0.0384
+fourier_rect_lows         3        0.0149      0.0017          0.0530         0.0279
+fourier_st1               3        0.0199      0.0016          0.0601         0.0469
+fourier_wide              3        0.0189      0.0067          0.0541         0.0424
+plain                     5        0.0300      0.0037          0.0808         0.0872
+plain_rect                5        0.0325      0.0050          0.0834         0.0846
+plain_rect_it60000        3        0.0139      0.0008          0.0535         0.0404
+
+6) Six worst cases at rho=30
+            seed  sigma     r     q  tau  price_err  euro_err
+mode                                                         
+plain_rect     2   0.03  0.06  0.02  1.0     1.0342    0.2726
+plain          1   0.03  0.06  0.02  1.0     1.0150    0.2726
+plain          1   0.03  0.03 -0.01  1.0     0.9327    0.2711
+plain          3   0.03  0.03 -0.01  1.0     0.9168    0.2711
+plain          0   0.03  0.03 -0.01  1.0     0.9121    0.2711
+plain          2   0.03  0.06  0.02  1.0     0.8824    0.2726

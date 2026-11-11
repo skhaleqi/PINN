@@ -1,0 +1,9 @@
+rect, 30000 steps, plain, rho=30, 5 seeds: ATM error at half of training 0.1430, at the end 0.0848
+rect, 30000 steps, cheb, rho=30, 5 seeds: ATM error at half of training 0.0944, at the end 0.0518
+rect, 30000 steps, fourier, rho=30, 5 seeds: ATM error at half of training 0.0582, at the end 0.0334
+rect, 60000 steps, plain, rho=30, 3 seeds: ATM error at half of training 0.0757, at the end 0.0403
+rect, 60000 steps, cheb, rho=30, 3 seeds: ATM error at half of training 0.0367, at the end 0.0253
+rect, 60000 steps, fourier, rho=30, 3 seeds: ATM error at half of training 0.0200, at the end 0.0157
+rect, 60000 steps, fourier, rho=100, 3 seeds: ATM error at half of training 0.1203, at the end 0.0610
+rect, 120000 steps, plain, rho=30, 3 seeds: ATM error at half of training 0.0463, at the end 0.0247
+rect, 120000 steps, cheb, rho=30, 3 seeds: ATM error at half of training 0.0207, at the end 0.0167

@@ -1,0 +1,15 @@
+Model: eur2_fourier_N8_rho30_seed0_domrect.pt (mode=fourier, N=8, rho=30); torch threads: 8
+
+Part A - PINN, B contracts per call (each a full price curve)
+  B=     1:      1.91 ms per call  ->     1908.2 microseconds per contract
+  B=   100:     22.70 ms per call  ->      227.0 microseconds per contract
+  B= 10000:   2332.45 ms per call  ->      233.2 microseconds per contract
+
+Part B/C - finite differences one contract at a time, and accuracy at S=100 (10 random contracts)
+  method                                          ms per contract    mean abs error at S=100
+  PINN (single contract per call)                            1.95                     0.0148
+  FD penalized, fast grid (M=200, N=200T)                   13.95                     0.0126
+  FD penalized, fine grid (M=600, N=1200T)                  85.95                     0.0120
+  PSOR exact constraint (M=400, N=200T)                    997.70                     0.0032
+
+Note: the PINN is evaluated in a single batch in part A; for a handful of contracts finite differences are competitive, the PINN advantage appears when thousands of prices (a volatility surface, Monte Carlo of scenarios, an LSTM stream) are needed.
